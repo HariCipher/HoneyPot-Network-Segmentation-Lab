@@ -1,0 +1,4 @@
+index=honeypot logtype=4002
+| stats count by src_host
+| where count > 3
+| sort - count

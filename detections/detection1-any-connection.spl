@@ -1,0 +1,4 @@
+index=honeypot
+| eval service=coalesce(dst_port, logtype)
+| table _time, src_host, dst_port, logtype
+| sort - _time

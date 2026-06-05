@@ -1,0 +1,13 @@
+index=main source="/var/log/kern.log" "LATERAL_MOVE"
+| rex field=_raw "SRC=(?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| rex field=_raw "DST=(?<dst_ip>\d+\.\d+\.\d+\.\d+)"
+| rex field=_raw "DPT=(?<dst_port>\d+)"
+| table _time, src_ip, dst_ip, dst_port
+| sort - _time
+
+/*
+STATUS: Configured, not validated.
+Root cause: iptables/nftables compatibility conflict on Kali Linux.
+FORWARD chain counters remain at 0 despite correct routing and rules.
+See known-issues/lateral-movement-validation.md for full analysis.
+*/
