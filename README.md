@@ -41,9 +41,9 @@ eth0: 192.168.117.128
 
 | # | Name | Source | Status |
 |---|------|--------|--------|
-| 1 | Any honeypot connection | OpenCanary → Splunk | ✅ Validated |
-| 2 | Lateral movement DMZ → Internal | iptables LOG → kern.log | ⚠️ Configured, not validated |
-| 3 | SSH brute force on honeypot | OpenCanary logtype 4002 | ✅ Validated |
+| 1 | Any honeypot connection | OpenCanary → Splunk | Validated |
+| 2 | Lateral movement DMZ → Internal | iptables LOG → kern.log | Configured, not validated |
+| 3 | SSH brute force on honeypot | OpenCanary logtype 4002 | Validated |
 
 Detection 2 is configured but blocked by an iptables/nftables
 compatibility issue on Kali. See
